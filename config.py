@@ -16,6 +16,7 @@ class ModelConfig:
     model_type: str = "llama"
     num_attention_heads: int = 32
     num_hidden_layers: int = 32
+    head_dim: int = 128
     num_key_value_heads: int = 32
     pretraining_tp: int = 1
     rms_norm_eps: float = 1e-05
@@ -51,9 +52,11 @@ class TinyLlama_Config(ModelConfig):
     hidden_size: int = 2048
     intermediate_size: int = 5632
     max_position_embeddings: int = 2048
-    num_attention_heads: int = 8
+    num_attention_heads: int = 32
     num_hidden_layers: int = 22
     num_key_value_heads: int = 4
     rope_theta = 10000.0
     torch_dtype = "bfloat16"
     transformers_version = "4.35.0"
+    attention_bias = False
+    head_dim: int = 64

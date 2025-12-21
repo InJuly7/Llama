@@ -3,11 +3,7 @@ import torch
 from torch import nn
 from typing import Optional, Tuple, List
 from dataclasses import dataclass
-
-
-class SiLUActivation(nn.Module):
-    def forward(self, input: torch.Tensor) -> torch.Tensor:
-        return nn.functional.silu(input)
+from utils import SiLUActivation
 
 
 class LlamaMLP(nn.Module):

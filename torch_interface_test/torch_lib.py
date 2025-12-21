@@ -17,6 +17,8 @@ def create_tensor(shape, dtype=torch.float32, ndim=2, device="cpu"):
         return torch.randn((shape[0], shape[1]), device=device).to(dtype).contiguous()
     elif ndim == 3:
         return torch.randn((shape[0], shape[1], shape[2]), device=device).to(dtype).contiguous()
+    elif ndim == 4:
+        return torch.randn((shape[0], shape[1], shape[2], shape[3]), device=device).to(dtype).contiguous()
     else:
         raise ValueError("Unsupported ndim")
 

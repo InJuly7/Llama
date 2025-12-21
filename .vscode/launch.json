@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug LlamaForCausalLM.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/LlamaForCausalLM.py",
+            "console": "integratedTerminal",
+            "justMyCode": false, // 允许进入第三方库的源码进行调试
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "args": []
+        }
+    ],
+}

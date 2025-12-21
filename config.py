@@ -16,6 +16,7 @@ class ModelConfig:
     model_type: str = "llama"
     num_attention_heads: int = 32
     num_hidden_layers: int = 32
+    head_dim: int = 128
     num_key_value_heads: int = 32
     pretraining_tp: int = 1
     rms_norm_eps: float = 1e-05
@@ -29,6 +30,7 @@ class ModelConfig:
     rope_parameters: dict = None
     rope_type: str = "default"
     mlp_bias: bool = False
+    pad_token_id: int = 0
 
 
 # Llama 7B
@@ -51,9 +53,14 @@ class TinyLlama_Config(ModelConfig):
     hidden_size: int = 2048
     intermediate_size: int = 5632
     max_position_embeddings: int = 2048
-    num_attention_heads: int = 8
+    num_attention_heads: int = 32
     num_hidden_layers: int = 22
     num_key_value_heads: int = 4
     rope_theta = 10000.0
     torch_dtype = "bfloat16"
     transformers_version = "4.35.0"
+    attention_bias = False
+    head_dim: int = 64
+    rope_parameters: dict = field(default_factory=lambda: {"rope_type": "default", "rope_theta": 10000.0})
+    logits_to_keep = 1
+    do_sample = False

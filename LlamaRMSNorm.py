@@ -3,14 +3,11 @@ import torch
 from torch import nn
 from typing import Optional, Tuple, List
 from dataclasses import dataclass
-from torch_lib import create_tensor
+from torch_interface_test.torch_lib import create_tensor
 
 
 class LlamaRMSNorm(nn.Module):
     def __init__(self, hidden_size, eps=1e-6):
-        """
-        LlamaRMSNorm is equivalent to T5LayerNorm
-        """
         super().__init__()
         self.weight = nn.Parameter(torch.ones(hidden_size))
         self.variance_epsilon = eps
@@ -42,8 +39,8 @@ def test_llama_rmsnorm():
     print(f"Output shape: {output.shape}")
 
 
-# if __name__ == "__main__":
-#     test_llama_rmsnorm()
+if __name__ == "__main__":
+    test_llama_rmsnorm()
 
 """
 Output Log
